@@ -1,0 +1,128 @@
+{
+  "disclaimer": "Educational demonstration only; not for diagnosis or treatment.",
+  "dataset": {
+    "source": "UCI Breast Cancer Wisconsin (Original), dataset id 15",
+    "observations": 699,
+    "features": [
+      "clump_thickness",
+      "uniformity_of_cell_size",
+      "uniformity_of_cell_shape",
+      "marginal_adhesion",
+      "single_epithelial_cell_size",
+      "bland_chromatin",
+      "normal_nucleoli",
+      "mitoses"
+    ],
+    "omitted_feature": "bare_nuclei",
+    "class_counts": {
+      "benign": 458,
+      "malignant": 241
+    }
+  },
+  "config": {
+    "seed": 42,
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "learning_rate": 0.1,
+    "max_iterations": 5000,
+    "l2_strength": 0.0,
+    "patience": 250,
+    "min_delta": 1e-06,
+    "threshold": 0.5
+  },
+  "split_sizes": {
+    "training": 491,
+    "validation": 104,
+    "test": 104
+  },
+  "best_iteration": 4993,
+  "metrics": {
+    "training": {
+      "observations": 491,
+      "true_positive": 158,
+      "false_negative": 11,
+      "false_positive": 7,
+      "true_negative": 315,
+      "accuracy": 0.9633401221995926,
+      "precision_malignant": 0.9575757575757575,
+      "recall_malignant": 0.9349112426035503,
+      "specificity_benign": 0.9782608695652174,
+      "f1_malignant": 0.9461077844311379,
+      "balanced_accuracy": 0.9565860560843839
+    },
+    "validation": {
+      "observations": 104,
+      "true_positive": 36,
+      "false_negative": 0,
+      "false_positive": 2,
+      "true_negative": 66,
+      "accuracy": 0.9807692307692307,
+      "precision_malignant": 0.9473684210526315,
+      "recall_malignant": 1.0,
+      "specificity_benign": 0.9705882352941176,
+      "f1_malignant": 0.972972972972973,
+      "balanced_accuracy": 0.9852941176470589
+    },
+    "test": {
+      "observations": 104,
+      "true_positive": 31,
+      "false_negative": 5,
+      "false_positive": 3,
+      "true_negative": 65,
+      "accuracy": 0.9230769230769231,
+      "precision_malignant": 0.9117647058823529,
+      "recall_malignant": 0.8611111111111112,
+      "specificity_benign": 0.9558823529411765,
+      "f1_malignant": 0.8857142857142858,
+      "balanced_accuracy": 0.9084967320261439
+    }
+  },
+  "synthetic_examples": {
+    "A": {
+      "feature_values": [
+        3,
+        5,
+        2,
+        7,
+        6,
+        1,
+        5,
+        1
+      ],
+      "predicted_class": "benign",
+      "model_probability_malignant": 0.13945960522276593,
+      "note": "Synthetic educational example; not a clinical prediction."
+    },
+    "B": {
+      "feature_values": [
+        1,
+        5,
+        4,
+        7,
+        1,
+        6,
+        5,
+        2
+      ],
+      "predicted_class": "benign",
+      "model_probability_malignant": 0.4377294006291627,
+      "note": "Synthetic educational example; not a clinical prediction."
+    },
+    "C": {
+      "feature_values": [
+        1,
+        9,
+        1,
+        1,
+        1,
+        9,
+        1,
+        1
+      ],
+      "predicted_class": "benign",
+      "model_probability_malignant": 0.20398351335664883,
+      "note": "Synthetic educational example; not a clinical prediction."
+    }
+  }
+}
