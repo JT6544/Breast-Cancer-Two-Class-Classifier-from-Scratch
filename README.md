@@ -31,13 +31,13 @@ avoiding several common sources of misleading performance:
 
 The model predicts
 
-$$
+```math
 y =
 \begin{cases}
 0, & \text{benign},\\
 1, & \text{malignant}.
 \end{cases}
-$$
+```
 
 Malignant disease is treated as the positive class throughout the confusion
 matrix and reported metrics.
@@ -126,9 +126,9 @@ The default workflow:
 
 For a standardised feature vector $x$, the model calculates the linear score
 
-$$
+```math
 z = w_0 + x^T w,
-$$
+```
 
 where:
 
@@ -138,19 +138,19 @@ where:
 
 The sigmoid converts the score to the model output
 
-$$
+```math
 p(y=1\mid x)=\sigma(z)=\frac{1}{1+e^{-z}}.
-$$
+```
 
 With the default threshold of $0.5$,
 
-$$
+```math
 \hat y =
 \begin{cases}
 1, & p(y=1\mid x)\geq0.5,\\
 0, & p(y=1\mid x)<0.5.
 \end{cases}
-$$
+```
 
 Because the model has not been calibrated for clinical use, this output is
 described as a **model probability**, not a clinical risk estimate.
@@ -159,7 +159,7 @@ described as a **model probability**, not a clinical risk estimate.
 
 For labels $y_i\in\{0,1\}$, the mean binary logistic loss is evaluated as
 
-$$
+```math
 J(w)
 =
 \frac{1}{N}\sum_{i=1}^{N}
@@ -168,7 +168,7 @@ J(w)
 \right]
 +
 \frac{\lambda}{2}\sum_{j=1}^{d}w_j^2.
-$$
+```
 
 The bias is not regularised. The implementation uses
 
@@ -181,13 +181,13 @@ overflow for large positive scores.
 
 The gradient is calculated analytically:
 
-$$
+```math
 \nabla J(w)
 =
 \frac{1}{N}X^T\left(\sigma(Xw)-y\right)
 +
 \lambda w.
-$$
+```
 
 No automatic-differentiation or machine-learning training package is required.
 
@@ -215,9 +215,9 @@ or choose the classification threshold.
 Each feature is standardised using the training-subset mean and standard
 deviation:
 
-$$
+```math
 x'_j=\frac{x_j-\mu_{j,\mathrm{train}}}{s_{j,\mathrm{train}}}.
-$$
+```
 
 The same training statistics are then applied unchanged to the validation,
 test, and synthetic observations. This prevents preprocessing information from
@@ -262,33 +262,33 @@ The confusion matrix uses malignant disease as the positive class:
 
 The reported metrics include:
 
-$$
+```math
 \mathrm{Accuracy}
 =
 \frac{TP+TN}{TP+TN+FP+FN},
-$$
+```
 
-$$
+```math
 \mathrm{Precision}_{\mathrm{malignant}}
 =
 \frac{TP}{TP+FP},
-$$
+```
 
-$$
+```math
 \mathrm{Recall}_{\mathrm{malignant}}
 =
 \frac{TP}{TP+FN},
-$$
+```
 
-$$
+```math
 \mathrm{Specificity}_{\mathrm{benign}}
 =
 \frac{TN}{TN+FP},
-$$
+```
 
 and
 
-$$
+```math
 \mathrm{Balanced\ accuracy}
 =
 \frac12
@@ -297,7 +297,7 @@ $$
 +
 \mathrm{Specificity}_{\mathrm{benign}}
 \right).
-$$
+```
 
 The F1 score for the malignant class is also reported.
 
